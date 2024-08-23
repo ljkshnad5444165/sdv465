@@ -1,0 +1,97 @@
+
+window.Cliengo = {}; //all Cliengo configs, functions and params goes into this object
+
+window.Cliengo.chatConfig = {
+  "companyId" : "65e7808642885a005ddc5645",
+  "websiteId" : "65e780c4d838260032da90b5",
+  "whiteLabelId" : "59f79e2ee4b0d57806be5b86",
+  "whiteLabelName" : "",
+  "googleAdWordsConversionId" : "",
+  "googleAnalyticsId" : "",
+  "chatbotName" : "Ernesto",
+
+    "phone" : "",
+  "title": "https://www.petropolisclub.com/",
+  "businessHoursConfiguration" : null,
+  "conversionPixels" : "",
+  "customFeedbackImageUrl" : "",
+  "widgetIcon" : "TWO_CHATS",
+   "widgetStyle" : "BAR",
+  "chatWindowColor" : "#d0021b",
+  "cliengoMeetings" : "false",
+  "chatWindowTitle" : "Chat de ventas",
+  "chatWindowInputPlaceholder" : "Escribe un mensaje...",
+  "chatInitialMessage" : "<p class=\"editor-paragraph\"><span>¡Hola! 👋 Estoy aquí para ayudarte en lo que necesites.<\/span><\/p>",
+  "chatIsWritingMessage" : " está escribiendo...",
+  "chatSaluteTimeInSeconds" : 3,
+  "avatarImgUrl": "",
+  "labs":{
+      },
+  "companyLabs": "gads_configuration_2023",
+  "planType": "CLIENGO_FREE",
+  "vertical": "",
+    "formHooksEnabled" : false,
+  "automaticRemarketingEnabled" : true,
+  "chatEnabled" : false,
+        "poweredBy":{
+          "text": "Usamos Cliengo ",
+          "link": "https://www.cliengo.com/?utm_source=usamos_cliengo&utm_medium=chat",
+          "img":  "https://res.cloudinary.com/hbrrdozyj/image/upload/v1603736815/Usamos-Cliengo_knac91.png"
+      },
+    "customPoweredByUtms": "",
+  "softDisable": false,
+  "hasConvertedLead" : false,   "CDN_URL_DOMAIN" : "//d47r8x2gwo1do.cloudfront.net",
+        "WS_CHATBOT_URL" : "wss://chatbot.cliengo.com",
+      "sessionPath" : "/s/65e7808642885a005ddc5645/65e780c4d838260032da90b5",
+  "cacheVersion" : "1438-07062065",
+  "debug" : false,
+  "whatsAppActive": false,
+  "lang" : "es",
+  "widgetVersion" : "2.0",
+  "type": "EXTERNAL",
+  "redirectToWPLite": false
+}
+
+
+var host = 'https://lw.cliengo.com';
+
+var mainClgoScriptId = 'mainclgo';
+var mainWspScriptId = 'mainWsp';
+var mainclgoScriptExists = document.querySelector('script[id="' + mainClgoScriptId + '"]');
+
+loadMain();
+
+function loadMain() {
+  if(mainclgoScriptExists) {
+    console.warn('Cuidado! ya existe un script con id "' + mainClgoScriptId + '", ' +
+      'probablemente el script del chat este duplicado en ese sitio!');
+    return;
+  }
+
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.id = mainClgoScriptId;
+  s.src = host + '/mainclgo.bundle.js';
+  s.setAttribute('data-company-id', '65e7808642885a005ddc5645');
+  s.setAttribute('data-source-id', '65e780c4d838260032da90b5');
+  s.setAttribute('data-host', host);
+  s.async = true;
+  document.body.appendChild(s);
+  console.debug('clgo loaded');
+
+  loadWhatsAppWidget();
+}
+
+function onCommonsLoad() {
+  console.log(commonsClgoScriptId + ' script loaded successfuly.');
+  loadMain();
+}
+
+// WhatsApp functions
+function setwhatsappConfig() {
+  }
+
+function loadWhatsAppWidget() {
+  }
+
+
